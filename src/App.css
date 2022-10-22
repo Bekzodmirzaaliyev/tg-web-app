@@ -5,6 +5,7 @@
 }
 
 body {
-  background: var(--tg-theme-bg-color);
-  color: var(--tg-theme-text-color);
+  background: #03071e;
+  color: #fff;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }

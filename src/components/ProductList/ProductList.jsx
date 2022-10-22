@@ -5,14 +5,16 @@ import {useTelegram} from "../../hooks/useTelegram";
 import {useCallback, useEffect} from "react";
 
 const products = [
-    {id: '1', title: 'Джинсы', price: 5000, description: 'Синего цвета, прямые'},
-    {id: '2', title: 'Куртка', price: 12000, description: 'Зеленого цвета, теплая'},
-    {id: '3', title: 'Джинсы 2', price: 5000, description: 'Синего цвета, прямые'},
-    {id: '4', title: 'Куртка 8', price: 122, description: 'Зеленого цвета, теплая'},
-    {id: '5', title: 'Джинсы 3', price: 5000, description: 'Синего цвета, прямые'},
-    {id: '6', title: 'Куртка 7', price: 600, description: 'Зеленого цвета, теплая'},
-    {id: '7', title: 'Джинсы 4', price: 5500, description: 'Синего цвета, прямые'},
-    {id: '8', title: 'Куртка 5', price: 12000, description: 'Зеленого цвета, теплая'},
+    {id: '1', img: 'https://ixbt.online/live/topics/preview/00/02/70/32/9849bde4b0.jpg',title: 'Acer', price: '1900$', description: 'Синего цвета, прямые'},
+    {id: '2', img: 'https://ixbt.online/live/topics/preview/00/02/70/32/9849bde4b0.jpg',title: 'Macbook', price: '1400$', description: 'Зеленого цвета, теплая'},
+    {id: '3', img: 'https://ixbt.online/live/topics/preview/00/02/70/32/9849bde4b0.jpg',title: 'Asus', price: '1600$', description: 'Синего цвета, прямые'},
+    {id: '4', img: 'https://ixbt.online/live/topics/preview/00/02/70/32/9849bde4b0.jpg',title: 'Lenevo', price: '900$', description: 'Зеленого цвета, теплая'},
+    {id: '5', img: 'https://ixbt.online/live/topics/preview/00/02/70/32/9849bde4b0.jpg',title: 'Samsung', price: '1300$', description: 'Синего цвета, прямые'},
+    {id: '6', img: 'https://ixbt.online/live/topics/preview/00/02/70/32/9849bde4b0.jpg',title: 'Huawei', price: '9800$', description: 'Зеленого цвета, теплая'},
+    {id: '7', img: 'https://ixbt.online/live/topics/preview/00/02/70/32/9849bde4b0.jpg',title: 'HP', price: '11900$', description: 'Синего цвета, прямые'},
+    {id: '8', img: 'https://ixbt.online/live/topics/preview/00/02/70/32/9849bde4b0.jpg',title: 'Toshiba', price: '2300$', description: 'Зеленого цвета, теплая'},
+    {id: '9', img: 'https://ixbt.online/live/topics/preview/00/02/70/32/9849bde4b0.jpg',title: 'MSI', price: '3300$', description: 'Зеленого цвета, теплая'},
+    {id: '10', img: 'https://ixbt.online/live/topics/preview/00/02/70/32/9849bde4b0.jpg',title: 'Ryzer', price: '2300$', description: 'Зеленого цвета, теплая'},
 ]
 
 const getTotalPrice = (items = []) => {
@@ -31,7 +33,7 @@ const ProductList = () => {
             totalPrice: getTotalPrice(addedItems),
             queryId,
         }
-        fetch('http://192.168.0.173:8000/web-data', {
+        fetch('mongodb+srv://Bekzod:6862442@ecommerce.u0lgm.mongodb.net/ecommerce?retryWrites=true&w=majority', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -64,7 +66,7 @@ const ProductList = () => {
         } else {
             tg.MainButton.show();
             tg.MainButton.setParams({
-                text: `Купить ${getTotalPrice(newItems)}`
+                text: `Купить ${getTotalPrice(newItems)} $`
             })
         }
     }
